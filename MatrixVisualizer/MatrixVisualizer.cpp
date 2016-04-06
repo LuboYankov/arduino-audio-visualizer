@@ -9,7 +9,6 @@
 void
 MatrixVisualizer::lightUp(LedControl lc, int row, int col) {
 	lc.setLed(0, row, col, true);
-	Serial.write("11111");
 }
 
 void
