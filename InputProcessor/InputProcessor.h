@@ -3,9 +3,9 @@
 
 class InputProcessor {
 public:
-	int* readInput();
-	int* fftAnalyze(int data[]);
-	int* processFftResponse(int response[]);
+	void readInput();
+	void fftAnalyze();
+	unsigned char* processFftResponse();
 };
 
 #endif

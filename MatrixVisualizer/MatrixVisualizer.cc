@@ -1,5 +1,4 @@
-#include <iostream>
-#include "matrixVisualizer.h"
+#include "MatrixVisualizer.h"
 
 void
 MatrixVisualizer::lightUp(int row, int col) {
