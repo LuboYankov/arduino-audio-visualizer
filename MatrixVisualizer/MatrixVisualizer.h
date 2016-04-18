@@ -14,7 +14,8 @@ public:
 	void shutDown(LedControl lc, int row, int col);
 	void lightUpColumn(LedControl lc, int row, int col);
 	void shutDownColumn(LedControl lc, int col);
-	void visualizeSignal(int buffer[]);
+	void checkRange(LedControl lc, unsigned char* data, int i, int min, int max);
+	void visualizeSignal(LedControl lc, unsigned char* data);
 };
 
 #endif

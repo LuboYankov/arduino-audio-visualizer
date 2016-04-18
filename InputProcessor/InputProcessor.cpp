@@ -25,7 +25,6 @@ InputProcessor::readInput() {
 
 void
 InputProcessor::fftAnalyze() {
-  fft_window();
   fft_reorder();
   fft_run();
 }
@@ -34,4 +33,9 @@ unsigned char*
 InputProcessor::processFftResponse() {
   fft_mag_octave();
   return fft_oct_out;
+}
+
+int*
+InputProcessor::printInput() {
+  return fft_input;
 }

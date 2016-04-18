@@ -6,6 +6,7 @@ public:
 	void readInput();
 	void fftAnalyze();
 	unsigned char* processFftResponse();
+	int* printInput();
 };
 
 #endif
