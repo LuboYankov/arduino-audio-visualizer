@@ -1,11 +1,9 @@
-#include <MatrixVisualizer.h>
-
-#include <LedControlMS.h>
-
 #define OCTAVE 1
 #define FFT_N 16
 
 #include <InputProcessor.h>
+#include <LedControlMS.h>
+#include <MatrixVisualizer.h>
 
 unsigned char* data;
 InputProcessor i;
@@ -24,17 +22,13 @@ void setup() {
 }
 
 void loop() {
-  while(1) {
-    cli();
-    i.readInput();
-    i.fftAnalyze();
-    data = i.processFftResponse();
-    for (byte i = 0; i < FFT_N/2; i++) {
-     mv.visualizeSignal(lc, data);
-     //Serial.print(data[i]);
-     //Serial.print(" ");
-    }
-    //Serial.println("");
-    sei();
+  i.readInput();
+  i.fftAnalyze();
+  data = i.processFftResponse();
+  mv.visualizeSignal(lc, data);
+/*  for (byte i = 0; i < FFT_N/2; i++) {
+   Serial.print(data[i]);
+   Serial.print(" ");
   }
+  Serial.println("");*/
 }

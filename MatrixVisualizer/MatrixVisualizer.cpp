@@ -56,11 +56,8 @@ MatrixVisualizer::checkRange(LedControl lc, unsigned char* data, int i, int min,
 
 void
 MatrixVisualizer::visualizeSignal(LedControl lc, unsigned char* data) {
-	// checkRange(lc, data, 1, 30, 150);
-	// checkRange(lc, data, 2, 30, 150);
-	// checkRange(lc, data, 3, 30, 150);
 	checkRange(lc, data, 4, 50, 150);
-	// checkRange(lc, data, 5, 30, 150);
-	// checkRange(lc, data, 6, 30, 150);
-	// checkRange(lc, data, 7, 30, 150);
+	checkRange(lc, data, 5, 30, 150);
+	checkRange(lc, data, 6, 30, 150);
+	checkRange(lc, data, 7, 30, 150);
 }

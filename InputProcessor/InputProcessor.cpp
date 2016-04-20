@@ -4,9 +4,8 @@
 
 #define OCTAVE 1
 
-#include "Arduino.h"
+#include "InputProcessor.h"
 #include "FFT.h"
-#include "InputProcessor.h"	
 
 void
 InputProcessor::readInput() {
