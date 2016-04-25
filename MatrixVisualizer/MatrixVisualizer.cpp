@@ -35,10 +35,10 @@ MatrixVisualizer::checkRange(LedControl lc, unsigned char* data, int i, int min,
 	int difference = (max - min) / 6;
 	for (int j = 1; j <= 7; j++) {
 		if (((int)data[i] > (int)(min + (j*difference))) && ((int)data[i] < (int)(min + ((j+1)*difference)))) {
-			lightUpColumn(lc, j, i-1);
+			lightUpColumn(lc, j, 8-i);
 		}
 	}
-	shutDownColumn(lc, i-1);
+	shutDownColumn(lc, 8-i);
 }
 
 void

@@ -7,7 +7,7 @@
 
 unsigned char* data;
 InputProcessor i;
-LedControl lc = LedControl(12,11,10,1);
+LedControl lc = LedControl(12, 11, 10, 1);
 MatrixVisualizer mv = MatrixVisualizer();
 
 void setup() {
@@ -16,17 +16,26 @@ void setup() {
   ADCSRA = 0xe5;
   ADMUX = 0x40;
   DIDR0 = 0x01;
-  lc.shutdown(0,false);
-  lc.setIntensity(0,8);
+  lc.shutdown(0, false);
+  lc.setIntensity(0, 8);
   lc.clearDisplay(0);
+  cli();
+  TCCR1A = 0;
+  TCCR1B = 0;
+  TIMSK1 = (1 << TOIE1);
+  TCCR1B |= (1 << CS11);
+  sei();
 }
 
-void loop() {
+ISR(TIMER1_OVF_vect) {
   i.readInput();
   i.fftAnalyze();
   data = i.processFftResponse();
   mv.visualizeSignal(lc, data);
-/*  for (byte i = 0; i < FFT_N/2; i++) {
+}
+
+void loop() {
+  /*for (byte i = 0; i < FFT_N/2; i++) {
    Serial.print(data[i]);
    Serial.print(" ");
   }
