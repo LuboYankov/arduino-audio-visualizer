@@ -33,8 +33,3 @@ InputProcessor::processFftResponse() {
   fft_mag_octave();
   return fft_oct_out;
 }
-
-int*
-InputProcessor::printInput() {
-  return fft_input;
-}
